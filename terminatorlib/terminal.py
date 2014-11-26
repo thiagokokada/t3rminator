@@ -25,7 +25,6 @@ from terminal_popup_menu import TerminalPopupMenu
 from searchbar import Searchbar
 from translation import _
 from signalman import Signalman
-import plugin
 from terminatorlib.layoutlauncher import LayoutLauncher
 
 # pylint: disable-msg=R0904
@@ -290,26 +289,6 @@ class Terminal(Gtk.VBox):
                             "[-A-Za-z0-9.]+(:[0-9]+)?" + rboundry)
             reg = GLib.Regex.new(re, GLib.RegexCompileFlags.OPTIMIZE, 0)
             self.matches['nntp'] = self.vte.match_add_gregex(reg, 0)
-
-            # Now add any matches from plugins
-            try:
-                registry = plugin.PluginRegistry()
-                registry.load_plugins()
-                plugins = registry.get_plugins_by_capability('url_handler')
-
-                for urlplugin in plugins:
-                    name = urlplugin.handler_name
-                    match = urlplugin.match
-                    if name in self.matches:
-                        dbg('refusing to add duplicate match %s' % name)
-                        continue
-                    reg = GLib.Regex.new(match, GLib.RegexCompileFlags.OPTIMIZE, 0)
-                    self.matches[name] = self.vte.match_add_gregex(reg, 0)
-                    dbg('added plugin URL handler for %s (%s) as %d' % 
-                        (name, urlplugin.__class__.__name__,
-                        self.matches[name]))
-            except Exception, ex:
-                err('Exception occurred adding plugin URL match: %s' % ex)
 
     def match_add(self, name, match):
         """Register a URL match"""
@@ -1294,23 +1273,6 @@ class Terminal(Gtk.VBox):
             url = 'ftp://' + url
         elif match == self.matches['addr_only']:
             url = 'http://' + url
-        elif match in self.matches.values():
-            # We have a match, but it's not a hard coded one, so it's a plugin
-            try:
-                registry = plugin.PluginRegistry()
-                registry.load_plugins()
-                plugins = registry.get_plugins_by_capability('url_handler')
-
-                for urlplugin in plugins:
-                    if match == self.matches[urlplugin.handler_name]:
-                        newurl = urlplugin.callback(url)
-                        if newurl is not None:
-                            dbg('Terminal::prepare_url: URL prepared by \
-%s plugin' % urlplugin.handler_name)
-                            url = newurl
-                        break
-            except Exception, ex:
-                err('Exception occurred preparing URL: %s' % ex)
 
         return(url)
 

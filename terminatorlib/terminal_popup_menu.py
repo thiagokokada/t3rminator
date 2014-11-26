@@ -13,7 +13,6 @@ from terminator import Terminator
 from util import err, dbg
 from config import Config
 from prefseditor import PrefsEditor
-import plugin
 
 class TerminalPopupMenu(object):
     """Class implementing the Terminal context menu"""
@@ -61,24 +60,6 @@ class TerminalPopupMenu(object):
             elif url[1] == terminal.matches['voip']:
                 nameopen = _('Ca_ll VoIP address')
                 namecopy = _('_Copy VoIP address')
-            elif url[1] in terminal.matches.values():
-                # This is a plugin match
-                for pluginname in terminal.matches:
-                    if terminal.matches[pluginname] == url[1]:
-                        break
-
-                dbg("Found match ID (%d) in terminal.matches plugin %s" %
-                        (url[1], pluginname))
-                registry = plugin.PluginRegistry()
-                registry.load_plugins()
-                plugins = registry.get_plugins_by_capability('url_handler')
-                for urlplugin in plugins:
-                    if urlplugin.handler_name == pluginname:
-                        dbg("Identified matching plugin: %s" %
-                                urlplugin.handler_name)
-                        nameopen = _(urlplugin.nameopen)
-                        namecopy = _(urlplugin.namecopy)
-                        break
 
             if not nameopen:
                 nameopen = _('_Open link')
@@ -205,22 +186,6 @@ class TerminalPopupMenu(object):
                 submenu.append(item)
 
         self.add_encoding_items(menu)
-
-        try:
-            menuitems = []
-            registry = plugin.PluginRegistry()
-            registry.load_plugins()
-            plugins = registry.get_plugins_by_capability('terminal_menu')
-            for menuplugin in plugins:
-                menuplugin.callback(menuitems, menu, terminal)
-            
-            if len(menuitems) > 0:
-                menu.append(Gtk.MenuItem())
-
-            for menuitem in menuitems:
-                menu.append(menuitem)
-        except Exception, ex:
-            err('TerminalPopupMenu::show: %s' % ex)
 
         menu.show_all()
         menu.popup(None, None, None, None, button, time)

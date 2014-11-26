@@ -37,13 +37,6 @@ Classes relating to configuration
 'click'
 >>> config['geometry_hinting'].__class__.__name__
 'bool'
->>> plugintest = {}
->>> plugintest['foo'] = 'bar'
->>> config.plugin_set_config('testplugin', plugintest)
->>> config.plugin_get_config('testplugin')
-{'foo': 'bar'}
->>> config.plugin_get('testplugin', 'foo')
-'bar'
 >>> config.get_profile()
 'default'
 >>> config.set_profile('my_first_new_testing_profile')
@@ -102,11 +95,8 @@ DEFAULTS = {
             'title_inactive_fg_color' : '#000000',
             'title_inactive_bg_color' : '#c0bebf',
             'inactive_color_offset': 0.8,
-            'enabled_plugins'       : ['LaunchpadBugURLHandler',
-                                       'LaunchpadCodeURLHandler',
-                                       'APTURLHandler'],
-             'suppress_multiple_term_dialog': False,
-             'always_split_with_profile': False,
+            'suppress_multiple_term_dialog': False,
+            'always_split_with_profile': False,
         },
         'keybindings': {
             'zoom_in'          : '<Control>plus',
@@ -236,8 +226,6 @@ DEFAULTS = {
                         'parent': 'window0'
                         }
                     }
-                },
-        'plugins': {
         },
 }
 
@@ -392,26 +380,6 @@ class Config(object):
         """Get the command line options"""
         return(self.base.command_line_options)
 
-    def plugin_get(self, pluginname, key):
-        """Get a plugin config value"""
-        return(self.base.get_item(key, plugin=pluginname))
-
-    def plugin_set(self, pluginname, key, value):
-        """Set a plugin config value"""
-        return(self.base.set_item(key, value, plugin=pluginname))
-
-    def plugin_get_config(self, plugin):
-        """Return a whole config tree for a given plugin"""
-        return(self.base.get_plugin(plugin))
-
-    def plugin_set_config(self, plugin, tree):
-        """Set a whole config tree for a given plugin"""
-        return(self.base.set_plugin(plugin, tree))
-
-    def plugin_del_config(self, plugin):
-        """Delete a whole config tree for a given plugin"""
-        return(self.base.del_plugin(plugin))
-
     def layout_get_config(self, layout):
         """Return a layout"""
         return(self.base.get_layout(layout))
@@ -428,7 +396,6 @@ class ConfigBase(Borg):
     global_config = None
     profiles = None
     keybindings = None
-    plugins = None
     layouts = None
     command_line_options = None
 
@@ -450,7 +417,7 @@ class ConfigBase(Borg):
             self.whined = False
         if self.sections is None:
             self.sections = ['global_config', 'keybindings', 'profiles',
-                             'layouts', 'plugins']
+                             'layouts']
         if self.global_config is None:
             self.global_config = copy(DEFAULTS['global_config'])
         if self.profiles is None:
@@ -458,8 +425,6 @@ class ConfigBase(Borg):
             self.profiles['default'] = copy(DEFAULTS['profiles']['default'])
         if self.keybindings is None:
             self.keybindings = copy(DEFAULTS['keybindings'])
-        if self.plugins is None:
-            self.plugins = {}
         if self.layouts is None:
             self.layouts = {}
             for layout in DEFAULTS['layouts']:
@@ -529,8 +494,6 @@ class ConfigBase(Borg):
         configspecdata['layouts']['__many__'] = {}
         configspecdata['layouts']['__many__']['__many__'] = section
 
-        configspecdata['plugins'] = {}
-
         configspec = ConfigObj(configspecdata)
         if DEBUG == True:
             configspec.write(open('/tmp/terminator_configspec_debug.txt', 'w'))
@@ -589,13 +552,6 @@ class ConfigBase(Borg):
                         # FIXME: Should this be outside the loop?
                         section[profile] = copy(DEFAULTS['profiles']['default'])
                     section[profile].update(parser[section_name][profile])
-            elif section_name == 'plugins':
-                if not parser.has_key(section_name):
-                    continue
-                for part in parser[section_name]:
-                    dbg('ConfigBase::load: Processing %s: %s' % (section_name,
-                                                                 part))
-                    section[part] = parser[section_name][part]
             elif section_name == 'layouts':
                 for layout in parser[section_name]:
                     dbg('ConfigBase::load: Processing %s: %s' % (section_name,
@@ -640,11 +596,6 @@ class ConfigBase(Borg):
             dbg('ConfigBase::save: Processing layout: %s' % layout)
             parser['layouts'][layout] = self.layouts[layout]
 
-        parser['plugins'] = {}
-        for plugin in self.plugins:
-            dbg('ConfigBase::save: Processing plugin: %s' % plugin)
-            parser['plugins'][plugin] = self.plugins[plugin]
-
         config_dir = get_config_dir()
         if not os.path.isdir(config_dir):
             os.makedirs(config_dir)
@@ -653,7 +604,7 @@ class ConfigBase(Borg):
         except Exception, ex:
             err('ConfigBase::save: Unable to save config: %s' % ex)
 
-    def get_item(self, key, profile='default', plugin=None):
+    def get_item(self, key, profile='default'):
         """Look up a configuration item"""
         if not self.profiles.has_key(profile):
             # Hitting this generally implies a bug
@@ -669,17 +620,13 @@ class ConfigBase(Borg):
             return(self.profiles[profile][key])
         elif key == 'keybindings':
             return(self.keybindings)
-        elif plugin is not None and self.plugins[plugin].has_key(key):
-            dbg('ConfigBase::get_item: %s found in plugin %s: %s' % (
-                    key, plugin, self.plugins[plugin][key]))
-            return(self.plugins[plugin][key])
         else:
             raise KeyError('ConfigBase::get_item: unknown key %s' % key)
 
-    def set_item(self, key, value, profile='default', plugin=None):
+    def set_item(self, key, value, profile='default'):
         """Set a configuration item"""
-        dbg('ConfigBase::set_item: Setting %s=%s (profile=%s, plugin=%s)' %
-                (key, value, profile, plugin))
+        dbg('ConfigBase::set_item: Setting %s=%s (profile=%s)' %
+                (key, value, profile))
 
         if self.global_config.has_key(key):
             self.global_config[key] = value
@@ -687,28 +634,10 @@ class ConfigBase(Borg):
             self.profiles[profile][key] = value
         elif key == 'keybindings':
             self.keybindings = value
-        elif plugin is not None:
-            if not self.plugins.has_key(plugin):
-                self.plugins[plugin] = {}
-            self.plugins[plugin][key] = value
         else:
             raise KeyError('ConfigBase::set_item: unknown key %s' % key)
 
         return(True)
-
-    def get_plugin(self, plugin):
-        """Return a whole tree for a plugin"""
-        if self.plugins.has_key(plugin):
-            return(self.plugins[plugin])
-
-    def set_plugin(self, plugin, tree):
-        """Set a whole tree for a plugin"""
-        self.plugins[plugin] = tree
-
-    def del_plugin(self, plugin):
-        """Delete a whole tree for a plugin"""
-        if plugin in self.plugins:
-            del self.plugins[plugin]
 
     def add_profile(self, profile):
         """Add a new profile"""

@@ -11,14 +11,12 @@ from util import dbg, err, spawn_new_terminator
 import config
 from translation import _
 from terminator import Terminator
-from plugin import PluginRegistry
 
 class LayoutLauncher:
     """Class implementing the various parts of the preferences editor"""
     terminator = None
     config = None
     registry = None
-    plugins = None
     keybindings = None
     window = None
     builder = None
