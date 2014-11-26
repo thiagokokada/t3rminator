@@ -9,7 +9,6 @@ import uuid
 import gi
 from gi.repository import GObject
 from gi.repository import Gtk, Gdk
-from gi.repository import Keybinder
 
 from util import dbg, err, make_uuid
 import util
