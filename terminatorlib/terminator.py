@@ -41,8 +41,6 @@ class Terminator(Borg):
     keybindings = None
 
     origcwd = None
-    dbus_path = None
-    dbus_name = None
     gnome_client = None
     debug_address = None
 
@@ -87,12 +85,6 @@ class Terminator(Borg):
             cwd = os.path.expanduser('~')
             os.chdir(cwd)
         self.origcwd = cwd
-
-    def set_dbus_data(self, dbus_service):
-        """Store the DBus bus details, if they are available"""
-        if dbus_service:
-            self.dbus_name = dbus_service.bus_name.get_name()
-            self.dbus_path = dbus_service.bus_path
 
     def attempt_gnome_client(self):
         """Attempt to find a GNOME Session to register with"""

@@ -91,8 +91,6 @@ icon for the window (by file or name)'))
             dest='select', help=_('Select a layout from a list'))
     parser.add_option('-p', '--profile', dest='profile', 
             help=_('Use a different profile as the default'))
-    parser.add_option('-u', '--no-dbus', action='store_true', dest='nodbus', 
-            help=_('Disable DBus'))
     parser.add_option('-d', '--debug', action='count', dest='debug',
             help=_('Enable debugging information (twice for debug server)'))
     parser.add_option('--debug-classes', action='store', dest='debug_classes', 

@@ -253,9 +253,6 @@ class PrefsEditor:
         # homogeneous_tabbar
         widget = guiget('homogeneouscheck')
         widget.set_active(self.config['homogeneous_tabbar'])
-        # DBus Server
-        widget = guiget('dbuscheck')
-        widget.set_active(self.config['dbus'])
         #Hide from taskbar
         widget = guiget('hidefromtaskbcheck')
         widget.set_active(self.config['hide_from_taskbar'])
@@ -603,11 +600,6 @@ class PrefsEditor:
     def on_scroll_toggled(self, widget):
         """scroll_tabbar setting changed"""
         self.config['scroll_tabbar'] = widget.get_active()
-        self.config.save()
-
-    def on_dbuscheck_toggled(self, widget):
-        """DBus server setting changed"""
-        self.config['dbus'] = widget.get_active()
         self.config.save()
 
     def on_winbordercheck_toggled(self, widget):

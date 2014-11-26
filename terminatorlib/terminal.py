@@ -1263,10 +1263,6 @@ class Terminal(Gtk.VBox):
         envv.append('TERM=%s' % self.config['term'])
         envv.append('COLORTERM=%s' % self.config['colorterm'])
         envv.append('TERMINATOR_UUID=%s' % self.uuid.urn)
-        if self.terminator.dbus_name:
-            envv.append('TERMINATOR_DBUS_NAME=%s' % self.terminator.dbus_name)
-        if self.terminator.dbus_path:
-            envv.append('TERMINATOR_DBUS_PATH=%s' % self.terminator.dbus_path)
 
         dbg('Forking shell: "%s" with args: %s' % (shell, args))
         self.pid = self.vte.spawn_sync(Vte.PtyFlags.DEFAULT,
