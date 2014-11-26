@@ -57,8 +57,8 @@ Classes relating to configuration
 import platform
 import os
 from copy import copy
-from configobj.configobj import ConfigObj, flatten_errors
-from configobj.validate import Validator
+from configobj import ConfigObj, flatten_errors
+from validate import Validator
 from borg import Borg
 from util import dbg, err, DEBUG, get_config_dir, dict_diff
 
