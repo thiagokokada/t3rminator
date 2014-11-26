@@ -131,7 +131,6 @@ class PrefsEditor:
                         'full_screen'      : 'Toggle fullscreen',
                         'reset'            : 'Reset the terminal',
                         'reset_clear'      : 'Reset and clear the terminal',
-                        'hide_window'      : 'Toggle window visibility',
                         'group_all'        : 'Group all terminals',
                         'group_all_toggle' : 'Group/Ungroup all terminals',
                         'ungroup_all'      : 'Ungroup all terminals',

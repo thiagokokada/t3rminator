@@ -160,7 +160,6 @@ DEFAULTS = {
             'full_screen'      : 'F11',
             'reset'            : '<Shift><Control>r',
             'reset_clear'      : '<Shift><Control>g',
-            'hide_window'      : '<Shift><Control><Alt>a',
             'group_all'        : '<Super>g',
             'group_all_toggle' : '',
             'ungroup_all'      : '<Shift><Super>g',

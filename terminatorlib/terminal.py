@@ -779,9 +779,6 @@ class Terminal(Gtk.VBox):
         # FIXME: Does keybindings really want to live in Terminator()?
         mapping = self.terminator.keybindings.lookup(event)
 
-        if mapping == "hide_window":
-            return(False)
-
         if mapping and mapping not in ['close_window', 
                                        'full_screen', 
                                        'new_tab']:
