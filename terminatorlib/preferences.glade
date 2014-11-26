@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.18.3 -->
 <interface>
-  <requires lib="gtk+" version="2.16"/>
+  <requires lib="gtk+" version="3.12"/>
   <object class="GtkListStore" id="BackspaceKeyListStore">
     <columns>
       <!-- column-name Result -->
@@ -352,10 +353,10 @@
             <child>
               <object class="GtkButton" id="okbutton">
                 <property name="label">gtk-close</property>
+                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
                 <property name="use_stock">True</property>
                 <signal name="clicked" handler="on_closebutton_clicked" swapped="no"/>
               </object>
@@ -395,6 +396,12 @@
                         <property name="n_columns">2</property>
                         <property name="column_spacing">6</property>
                         <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
                           <object class="GtkLabel" id="label8">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -403,16 +410,17 @@
                           <packing>
                             <property name="top_attach">2</property>
                             <property name="bottom_attach">3</property>
-                            <property name="x_options"></property>
-                            <property name="y_options"></property>
+                            <property name="x_options"/>
+                            <property name="y_options"/>
                           </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="wingeomcheck">
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
+                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_wingeomcheck_toggled" swapped="no"/>
@@ -422,7 +430,7 @@
                             <property name="right_attach">2</property>
                             <property name="top_attach">2</property>
                             <property name="bottom_attach">3</property>
-                            <property name="x_options"></property>
+                            <property name="x_options"/>
                             <property name="y_options">GTK_EXPAND</property>
                           </packing>
                         </child>
@@ -435,8 +443,8 @@
                           <packing>
                             <property name="top_attach">3</property>
                             <property name="bottom_attach">4</property>
-                            <property name="x_options"></property>
-                            <property name="y_options"></property>
+                            <property name="x_options"/>
+                            <property name="y_options"/>
                           </packing>
                         </child>
                         <child>
@@ -458,7 +466,7 @@
                             <property name="right_attach">2</property>
                             <property name="top_attach">3</property>
                             <property name="bottom_attach">4</property>
-                            <property name="x_options"></property>
+                            <property name="x_options"/>
                             <property name="y_options">GTK_EXPAND</property>
                           </packing>
                         </child>
@@ -471,16 +479,17 @@
                           <packing>
                             <property name="top_attach">4</property>
                             <property name="bottom_attach">5</property>
-                            <property name="x_options"></property>
-                            <property name="y_options"></property>
+                            <property name="x_options"/>
+                            <property name="y_options"/>
                           </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="winbordercheck">
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
+                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_winbordercheck_toggled" swapped="no"/>
@@ -490,7 +499,7 @@
                             <property name="right_attach">2</property>
                             <property name="top_attach">4</property>
                             <property name="bottom_attach">5</property>
-                            <property name="x_options"></property>
+                            <property name="x_options"/>
                             <property name="y_options">GTK_EXPAND</property>
                           </packing>
                         </child>
@@ -503,8 +512,8 @@
                           <packing>
                             <property name="top_attach">5</property>
                             <property name="bottom_attach">6</property>
-                            <property name="x_options"></property>
-                            <property name="y_options"></property>
+                            <property name="x_options"/>
+                            <property name="y_options"/>
                           </packing>
                         </child>
                         <child>
@@ -526,7 +535,7 @@
                             <property name="right_attach">2</property>
                             <property name="top_attach">5</property>
                             <property name="bottom_attach">6</property>
-                            <property name="x_options"></property>
+                            <property name="x_options"/>
                             <property name="y_options">GTK_EXPAND</property>
                           </packing>
                         </child>
@@ -537,8 +546,8 @@
                             <property name="label" translatable="yes">Mouse focus</property>
                           </object>
                           <packing>
-                            <property name="x_options"></property>
-                            <property name="y_options"></property>
+                            <property name="x_options"/>
+                            <property name="y_options"/>
                           </packing>
                         </child>
                         <child>
@@ -558,7 +567,7 @@
                           <packing>
                             <property name="left_attach">1</property>
                             <property name="right_attach">2</property>
-                            <property name="x_options"></property>
+                            <property name="x_options"/>
                             <property name="y_options">GTK_EXPAND</property>
                           </packing>
                         </child>
@@ -571,8 +580,8 @@
                           <packing>
                             <property name="top_attach">1</property>
                             <property name="bottom_attach">2</property>
-                            <property name="x_options"></property>
-                            <property name="y_options"></property>
+                            <property name="x_options"/>
+                            <property name="y_options"/>
                           </packing>
                         </child>
                         <child>
@@ -602,16 +611,17 @@
                           <packing>
                             <property name="top_attach">9</property>
                             <property name="bottom_attach">10</property>
-                            <property name="x_options"></property>
-                            <property name="y_options"></property>
+                            <property name="x_options"/>
+                            <property name="y_options"/>
                           </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="hidefromtaskbcheck">
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
+                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_hidefromtaskbcheck_toggled" swapped="no"/>
@@ -621,7 +631,7 @@
                             <property name="right_attach">2</property>
                             <property name="top_attach">9</property>
                             <property name="bottom_attach">10</property>
-                            <property name="x_options"></property>
+                            <property name="x_options"/>
                             <property name="y_options">GTK_EXPAND</property>
                           </packing>
                         </child>
@@ -634,8 +644,8 @@
                           <packing>
                             <property name="top_attach">10</property>
                             <property name="bottom_attach">11</property>
-                            <property name="x_options"></property>
-                            <property name="y_options"></property>
+                            <property name="x_options"/>
+                            <property name="y_options"/>
                           </packing>
                         </child>
                         <child>
@@ -647,16 +657,17 @@
                           <packing>
                             <property name="top_attach">11</property>
                             <property name="bottom_attach">12</property>
-                            <property name="x_options"></property>
-                            <property name="y_options"></property>
+                            <property name="x_options"/>
+                            <property name="y_options"/>
                           </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="alwaysontopcheck">
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
+                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_alwaysontopcheck_toggled" swapped="no"/>
@@ -666,16 +677,17 @@
                             <property name="right_attach">2</property>
                             <property name="top_attach">10</property>
                             <property name="bottom_attach">11</property>
-                            <property name="x_options"></property>
+                            <property name="x_options"/>
                             <property name="y_options">GTK_EXPAND</property>
                           </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="hideonlosefocuscheck">
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
+                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_hideonlosefocuscheck_toggled" swapped="no"/>
@@ -685,7 +697,7 @@
                             <property name="right_attach">2</property>
                             <property name="top_attach">11</property>
                             <property name="bottom_attach">12</property>
-                            <property name="x_options"></property>
+                            <property name="x_options"/>
                             <property name="y_options">GTK_EXPAND</property>
                           </packing>
                         </child>
@@ -698,16 +710,17 @@
                           <packing>
                             <property name="top_attach">12</property>
                             <property name="bottom_attach">13</property>
-                            <property name="x_options"></property>
-                            <property name="y_options"></property>
+                            <property name="x_options"/>
+                            <property name="y_options"/>
                           </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="stickycheck">
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
+                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_stickycheck_toggled" swapped="no"/>
@@ -717,7 +730,7 @@
                             <property name="right_attach">2</property>
                             <property name="top_attach">12</property>
                             <property name="bottom_attach">13</property>
-                            <property name="x_options"></property>
+                            <property name="x_options"/>
                             <property name="y_options">GTK_EXPAND</property>
                           </packing>
                         </child>
@@ -731,16 +744,17 @@
                           <packing>
                             <property name="top_attach">13</property>
                             <property name="bottom_attach">14</property>
-                            <property name="x_options"></property>
-                            <property name="y_options"></property>
+                            <property name="x_options"/>
+                            <property name="y_options"/>
                           </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="title_hide_sizetextcheck">
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
+                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_title_hide_sizetextcheck_toggled" swapped="no"/>
@@ -750,7 +764,7 @@
                             <property name="right_attach">2</property>
                             <property name="top_attach">13</property>
                             <property name="bottom_attach">14</property>
-                            <property name="x_options"></property>
+                            <property name="x_options"/>
                             <property name="y_options">GTK_EXPAND</property>
                           </packing>
                         </child>
@@ -795,10 +809,11 @@
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="scrolltabbarcheck">
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_scroll_toggled" swapped="no"/>
                           </object>
@@ -824,10 +839,11 @@
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="homogeneouscheck">
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
+                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_homogeneous_toggled" swapped="no"/>
@@ -865,10 +881,11 @@
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="use_custom_url_handler_checkbox">
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_use_custom_url_handler_checkbutton_toggled" swapped="no"/>
                           </object>
@@ -877,7 +894,7 @@
                             <property name="right_attach">2</property>
                             <property name="top_attach">15</property>
                             <property name="bottom_attach">16</property>
-                            <property name="x_options"></property>
+                            <property name="x_options"/>
                             <property name="y_options">GTK_EXPAND</property>
                           </packing>
                         </child>
@@ -908,10 +925,10 @@
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="always_split_with_profile">
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="xalign">0</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_always_split_with_profile_toggled" swapped="no"/>
@@ -966,10 +983,10 @@
                                 <property name="row_spacing">6</property>
                                 <child>
                                   <object class="GtkColorButton" id="title_transmit_fg_color">
+                                    <property name="use_action_appearance">False</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="color">#000000000000</property>
                                     <signal name="color-set" handler="on_title_transmit_fg_color_color_set" swapped="no"/>
                                   </object>
@@ -978,16 +995,16 @@
                                     <property name="right_attach">2</property>
                                     <property name="top_attach">1</property>
                                     <property name="bottom_attach">2</property>
-                                    <property name="x_options"></property>
-                                    <property name="y_options"></property>
+                                    <property name="x_options"/>
+                                    <property name="y_options"/>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkColorButton" id="title_inactive_fg_color">
+                                    <property name="use_action_appearance">False</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="color">#000000000000</property>
                                     <signal name="color-set" handler="on_title_inactive_fg_color_color_set" swapped="no"/>
                                   </object>
@@ -996,16 +1013,16 @@
                                     <property name="right_attach">3</property>
                                     <property name="top_attach">1</property>
                                     <property name="bottom_attach">2</property>
-                                    <property name="x_options"></property>
-                                    <property name="y_options"></property>
+                                    <property name="x_options"/>
+                                    <property name="y_options"/>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkColorButton" id="title_transmit_bg_color">
+                                    <property name="use_action_appearance">False</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="color">#000000000000</property>
                                     <signal name="color-set" handler="on_title_transmit_bg_color_color_set" swapped="no"/>
                                   </object>
@@ -1014,16 +1031,16 @@
                                     <property name="right_attach">2</property>
                                     <property name="top_attach">2</property>
                                     <property name="bottom_attach">3</property>
-                                    <property name="x_options"></property>
-                                    <property name="y_options"></property>
+                                    <property name="x_options"/>
+                                    <property name="y_options"/>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkColorButton" id="title_inactive_bg_color">
+                                    <property name="use_action_appearance">False</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="color">#000000000000</property>
                                     <signal name="color-set" handler="on_title_inactive_bg_color_color_set" swapped="no"/>
                                   </object>
@@ -1032,16 +1049,16 @@
                                     <property name="right_attach">3</property>
                                     <property name="top_attach">2</property>
                                     <property name="bottom_attach">3</property>
-                                    <property name="x_options"></property>
-                                    <property name="y_options"></property>
+                                    <property name="x_options"/>
+                                    <property name="y_options"/>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkColorButton" id="title_receive_fg_color">
+                                    <property name="use_action_appearance">False</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="color">#000000000000</property>
                                     <signal name="color-set" handler="on_title_receive_fg_color_color_set" swapped="no"/>
                                   </object>
@@ -1050,16 +1067,16 @@
                                     <property name="right_attach">4</property>
                                     <property name="top_attach">1</property>
                                     <property name="bottom_attach">2</property>
-                                    <property name="x_options"></property>
-                                    <property name="y_options"></property>
+                                    <property name="x_options"/>
+                                    <property name="y_options"/>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkColorButton" id="title_receive_bg_color">
+                                    <property name="use_action_appearance">False</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="color">#000000000000</property>
                                     <signal name="color-set" handler="on_title_receive_bg_color_color_set" swapped="no"/>
                                   </object>
@@ -1068,8 +1085,8 @@
                                     <property name="right_attach">4</property>
                                     <property name="top_attach">2</property>
                                     <property name="bottom_attach">3</property>
-                                    <property name="x_options"></property>
-                                    <property name="y_options"></property>
+                                    <property name="x_options"/>
+                                    <property name="y_options"/>
                                   </packing>
                                 </child>
                                 <child>
@@ -1082,7 +1099,7 @@
                                     <property name="left_attach">3</property>
                                     <property name="right_attach">4</property>
                                     <property name="x_options">GTK_EXPAND</property>
-                                    <property name="y_options"></property>
+                                    <property name="y_options"/>
                                   </packing>
                                 </child>
                                 <child>
@@ -1095,7 +1112,7 @@
                                     <property name="left_attach">1</property>
                                     <property name="right_attach">2</property>
                                     <property name="x_options">GTK_EXPAND</property>
-                                    <property name="y_options"></property>
+                                    <property name="y_options"/>
                                   </packing>
                                 </child>
                                 <child>
@@ -1108,7 +1125,7 @@
                                     <property name="left_attach">2</property>
                                     <property name="right_attach">3</property>
                                     <property name="x_options">GTK_EXPAND</property>
-                                    <property name="y_options"></property>
+                                    <property name="y_options"/>
                                   </packing>
                                 </child>
                                 <child>
@@ -1120,8 +1137,8 @@
                                   <packing>
                                     <property name="top_attach">1</property>
                                     <property name="bottom_attach">2</property>
-                                    <property name="x_options"></property>
-                                    <property name="y_options"></property>
+                                    <property name="x_options"/>
+                                    <property name="y_options"/>
                                   </packing>
                                 </child>
                                 <child>
@@ -1133,9 +1150,12 @@
                                   <packing>
                                     <property name="top_attach">2</property>
                                     <property name="bottom_attach">3</property>
-                                    <property name="x_options"></property>
-                                    <property name="y_options"></property>
+                                    <property name="x_options"/>
+                                    <property name="y_options"/>
                                   </packing>
+                                </child>
+                                <child>
+                                  <placeholder/>
                                 </child>
                                 <child>
                                   <placeholder/>
@@ -1187,6 +1207,9 @@
                         <property name="model">ProfilesListStore</property>
                         <property name="headers_clickable">False</property>
                         <property name="search_column">0</property>
+                        <child internal-child="selection">
+                          <object class="GtkTreeSelection" id="treeview-selection1"/>
+                        </child>
                         <child>
                           <object class="GtkTreeViewColumn" id="profilecolumn">
                             <property name="title">Profile</property>
@@ -1219,10 +1242,10 @@
                         <child>
                           <object class="GtkButton" id="profileaddbutton">
                             <property name="label">gtk-add</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_stock">True</property>
                             <signal name="clicked" handler="on_profileaddbutton_clicked" swapped="no"/>
                           </object>
@@ -1235,10 +1258,10 @@
                         <child>
                           <object class="GtkButton" id="profileremovebutton">
                             <property name="label">gtk-remove</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_stock">True</property>
                             <signal name="clicked" handler="on_profileremovebutton_clicked" swapped="no"/>
                           </object>
@@ -1276,11 +1299,12 @@
                         <child>
                           <object class="GtkCheckButton" id="system_font_checkbutton">
                             <property name="label" translatable="yes">_Use the system fixed width font</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_system_font_checkbutton_toggled" swapped="no"/>
                           </object>
@@ -1317,11 +1341,12 @@
                                 </child>
                                 <child>
                                   <object class="GtkFontButton" id="font_selector">
+                                    <property name="use_action_appearance">False</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="focus_on_click">False</property>
+                                    <property name="font">Sans 12</property>
                                     <property name="title" translatable="yes">Choose A Terminal Font</property>
                                     <property name="use_font">True</property>
                                     <signal name="font-set" handler="on_font_selector_font_set" swapped="no"/>
@@ -1344,11 +1369,12 @@
                         <child>
                           <object class="GtkCheckButton" id="allow_bold_checkbutton">
                             <property name="label" translatable="yes">_Allow bold text</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_allow_bold_checkbutton_toggled" swapped="no"/>
                           </object>
@@ -1361,10 +1387,11 @@
                         <child>
                           <object class="GtkCheckButton" id="show_titlebar">
                             <property name="label" translatable="yes">Show titlebar</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_show_titlebar_toggled" swapped="no"/>
                           </object>
@@ -1377,16 +1404,17 @@
                         <child>
                           <object class="GtkCheckButton" id="copy_on_selection">
                             <property name="label" translatable="yes">Copy on selection</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_copy_on_selection_toggled" swapped="no"/>
                           </object>
                           <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
                             <property name="position">5</property>
                           </packing>
                         </child>
@@ -1413,15 +1441,17 @@
                               <object class="GtkAlignment" id="alignment5">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="left_padding">12</property>
                                 <child>
                                   <object class="GtkVBox" id="vbox9">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="homogeneous">True</property>
                                     <child>
                                       <object class="GtkHBox" id="hbox4">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="valign">start</property>
                                         <child>
                                           <object class="GtkTable" id="table3">
                                             <property name="visible">True</property>
@@ -1447,8 +1477,8 @@
                                               <packing>
                                                 <property name="left_attach">1</property>
                                                 <property name="right_attach">2</property>
-                                                <property name="x_options"></property>
-                                                <property name="y_options"></property>
+                                                <property name="x_options"/>
+                                                <property name="y_options"/>
                                               </packing>
                                             </child>
                                             <child>
@@ -1464,10 +1494,10 @@
                                             </child>
                                             <child>
                                               <object class="GtkColorButton" id="cursor_color">
+                                                <property name="use_action_appearance">False</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">True</property>
-                                                <property name="use_action_appearance">False</property>
                                                 <property name="color">#000000000000</property>
                                                 <signal name="color-set" handler="on_cursor_color_color_set" swapped="no"/>
                                               </object>
@@ -1476,8 +1506,8 @@
                                                 <property name="right_attach">2</property>
                                                 <property name="top_attach">1</property>
                                                 <property name="bottom_attach">2</property>
-                                                <property name="x_options"></property>
-                                                <property name="y_options"></property>
+                                                <property name="x_options"/>
+                                                <property name="y_options"/>
                                               </packing>
                                             </child>
                                             <child>
@@ -1492,7 +1522,7 @@
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
-                                            <property name="fill">True</property>
+                                            <property name="fill">False</property>
                                             <property name="position">0</property>
                                           </packing>
                                         </child>
@@ -1502,17 +1532,18 @@
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
-                                        <property name="fill">True</property>
+                                        <property name="fill">False</property>
                                         <property name="position">0</property>
                                       </packing>
                                     </child>
                                     <child>
                                       <object class="GtkCheckButton" id="cursor_blink">
                                         <property name="label" translatable="yes">Cursor blink</property>
+                                        <property name="use_action_appearance">False</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">False</property>
-                                        <property name="use_action_appearance">False</property>
+                                        <property name="xalign">0.5</property>
                                         <property name="draw_indicator">True</property>
                                         <signal name="toggled" handler="on_cursor_blink_toggled" swapped="no"/>
                                       </object>
@@ -1527,7 +1558,7 @@
                               </object>
                               <packing>
                                 <property name="expand">False</property>
-                                <property name="fill">True</property>
+                                <property name="fill">False</property>
                                 <property name="position">1</property>
                               </packing>
                             </child>
@@ -1569,10 +1600,11 @@
                                     <child>
                                       <object class="GtkCheckButton" id="icon_bell_checkbutton">
                                         <property name="label" translatable="yes">Titlebar icon</property>
+                                        <property name="use_action_appearance">False</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">False</property>
-                                        <property name="use_action_appearance">False</property>
+                                        <property name="xalign">0.5</property>
                                         <property name="draw_indicator">True</property>
                                         <signal name="toggled" handler="on_icon_bell_checkbutton_toggled" swapped="no"/>
                                       </object>
@@ -1585,11 +1617,12 @@
                                     <child>
                                       <object class="GtkCheckButton" id="audible_bell_checkbutton">
                                         <property name="label" translatable="yes">Audible beep</property>
+                                        <property name="use_action_appearance">False</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">False</property>
-                                        <property name="use_action_appearance">False</property>
                                         <property name="use_underline">True</property>
+                                        <property name="xalign">0.5</property>
                                         <property name="draw_indicator">True</property>
                                         <signal name="toggled" handler="on_audible_bell_checkbutton_toggled" swapped="no"/>
                                       </object>
@@ -1602,11 +1635,12 @@
                                     <child>
                                       <object class="GtkCheckButton" id="urgent_bell_checkbutton">
                                         <property name="label" translatable="yes">Window list flash</property>
+                                        <property name="use_action_appearance">False</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">False</property>
-                                        <property name="use_action_appearance">False</property>
                                         <property name="use_underline">True</property>
+                                        <property name="xalign">0.5</property>
                                         <property name="draw_indicator">True</property>
                                         <signal name="toggled" handler="on_urgent_bell_checkbutton_toggled" swapped="no"/>
                                       </object>
@@ -1690,11 +1724,12 @@
                                         <child>
                                           <object class="GtkCheckButton" id="login_shell_checkbutton">
                                             <property name="label" translatable="yes">_Run command as a login shell</property>
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">False</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="use_underline">True</property>
+                                            <property name="xalign">0.5</property>
                                             <property name="draw_indicator">True</property>
                                             <signal name="toggled" handler="on_login_shell_checkbutton_toggled" swapped="no"/>
                                           </object>
@@ -1707,11 +1742,12 @@
                                         <child>
                                           <object class="GtkCheckButton" id="update_records_checkbutton">
                                             <property name="label" translatable="yes">_Update login records when command is launched</property>
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">False</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="use_underline">True</property>
+                                            <property name="xalign">0.5</property>
                                             <property name="draw_indicator">True</property>
                                             <signal name="toggled" handler="on_update_records_checkbutton_toggled" swapped="no"/>
                                           </object>
@@ -1724,11 +1760,12 @@
                                         <child>
                                           <object class="GtkCheckButton" id="use_custom_command_checkbutton">
                                             <property name="label" translatable="yes">Ru_n a custom command instead of my shell</property>
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">False</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="use_underline">True</property>
+                                            <property name="xalign">0.5</property>
                                             <property name="draw_indicator">True</property>
                                             <signal name="toggled" handler="on_use_custom_command_checkbutton_toggled" swapped="no"/>
                                           </object>
@@ -1922,24 +1959,25 @@
                                         <property name="top_attach">2</property>
                                         <property name="bottom_attach">3</property>
                                         <property name="x_options">GTK_FILL</property>
-                                        <property name="y_options"></property>
+                                        <property name="y_options"/>
                                       </packing>
                                     </child>
                                     <child>
                                       <object class="GtkCheckButton" id="use_theme_colors_checkbutton">
                                         <property name="label" translatable="yes">_Use colors from system theme</property>
+                                        <property name="use_action_appearance">False</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">False</property>
-                                        <property name="use_action_appearance">False</property>
                                         <property name="use_underline">True</property>
+                                        <property name="xalign">0.5</property>
                                         <property name="draw_indicator">True</property>
                                         <signal name="toggled" handler="on_use_theme_colors_checkbutton_toggled" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="right_attach">2</property>
                                         <property name="x_options">GTK_FILL</property>
-                                        <property name="y_options"></property>
+                                        <property name="y_options"/>
                                       </packing>
                                     </child>
                                     <child>
@@ -1956,7 +1994,7 @@
                                         <property name="top_attach">3</property>
                                         <property name="bottom_attach">4</property>
                                         <property name="x_options">GTK_FILL</property>
-                                        <property name="y_options"></property>
+                                        <property name="y_options"/>
                                       </packing>
                                     </child>
                                     <child>
@@ -1973,7 +2011,7 @@
                                         <property name="top_attach">1</property>
                                         <property name="bottom_attach">2</property>
                                         <property name="x_options">GTK_FILL</property>
-                                        <property name="y_options"></property>
+                                        <property name="y_options"/>
                                       </packing>
                                     </child>
                                     <child>
@@ -1982,10 +2020,10 @@
                                         <property name="can_focus">False</property>
                                         <child>
                                           <object class="GtkColorButton" id="foreground_colorpicker">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="title" translatable="yes">Choose Terminal Text Color</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_foreground_colorpicker_color_set" swapped="no"/>
@@ -2015,10 +2053,10 @@
                                         <property name="can_focus">False</property>
                                         <child>
                                           <object class="GtkColorButton" id="background_colorpicker">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="title" translatable="yes">Choose Terminal Background Color</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_background_colorpicker_color_set" swapped="no"/>
@@ -2126,7 +2164,7 @@
                                         <property name="top_attach">1</property>
                                         <property name="bottom_attach">2</property>
                                         <property name="x_options">GTK_FILL</property>
-                                        <property name="y_options"></property>
+                                        <property name="y_options"/>
                                       </packing>
                                     </child>
                                     <child>
@@ -2139,136 +2177,136 @@
                                         <property name="row_spacing">6</property>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_1">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
                                           <packing>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_2">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
                                             <property name="right_attach">2</property>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_3">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="left_attach">2</property>
                                             <property name="right_attach">3</property>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_4">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="left_attach">3</property>
                                             <property name="right_attach">4</property>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_5">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="left_attach">4</property>
                                             <property name="right_attach">5</property>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_6">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="left_attach">5</property>
                                             <property name="right_attach">6</property>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_8">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="left_attach">7</property>
                                             <property name="right_attach">8</property>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_9">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="top_attach">1</property>
                                             <property name="bottom_attach">2</property>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_10">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
@@ -2277,16 +2315,16 @@
                                             <property name="right_attach">2</property>
                                             <property name="top_attach">1</property>
                                             <property name="bottom_attach">2</property>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_12">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
@@ -2295,16 +2333,16 @@
                                             <property name="right_attach">4</property>
                                             <property name="top_attach">1</property>
                                             <property name="bottom_attach">2</property>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_11">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
@@ -2313,16 +2351,16 @@
                                             <property name="right_attach">3</property>
                                             <property name="top_attach">1</property>
                                             <property name="bottom_attach">2</property>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_13">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
@@ -2331,16 +2369,16 @@
                                             <property name="right_attach">5</property>
                                             <property name="top_attach">1</property>
                                             <property name="bottom_attach">2</property>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_16">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
@@ -2349,16 +2387,16 @@
                                             <property name="right_attach">8</property>
                                             <property name="top_attach">1</property>
                                             <property name="bottom_attach">2</property>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_14">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
@@ -2368,31 +2406,31 @@
                                             <property name="top_attach">1</property>
                                             <property name="bottom_attach">2</property>
                                             <property name="x_options">GTK_FILL</property>
-                                            <property name="y_options"></property>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_7">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="left_attach">6</property>
                                             <property name="right_attach">7</property>
-                                            <property name="x_options"></property>
-                                            <property name="y_options"></property>
+                                            <property name="x_options"/>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                         <child>
                                           <object class="GtkColorButton" id="palette_colorpicker_15">
+                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="color">#000000000000</property>
                                             <signal name="color-set" handler="on_palette_colorpicker_color_set" swapped="no"/>
                                           </object>
@@ -2402,7 +2440,7 @@
                                             <property name="top_attach">1</property>
                                             <property name="bottom_attach">2</property>
                                             <property name="x_options">GTK_FILL</property>
-                                            <property name="y_options"></property>
+                                            <property name="y_options"/>
                                           </packing>
                                         </child>
                                       </object>
@@ -2427,7 +2465,7 @@
                                       <packing>
                                         <property name="right_attach">2</property>
                                         <property name="x_options">GTK_FILL</property>
-                                        <property name="y_options"></property>
+                                        <property name="y_options"/>
                                       </packing>
                                     </child>
                                     <child>
@@ -2514,13 +2552,23 @@
                         <property name="column_spacing">12</property>
                         <property name="row_spacing">6</property>
                         <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
                           <object class="GtkCheckButton" id="scroll_on_keystroke_checkbutton">
                             <property name="label" translatable="yes">Scroll on _keystroke</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_scroll_on_keystroke_checkbutton_toggled" swapped="no"/>
                           </object>
@@ -2528,17 +2576,18 @@
                             <property name="right_attach">2</property>
                             <property name="top_attach">4</property>
                             <property name="bottom_attach">5</property>
-                            <property name="y_options"></property>
+                            <property name="y_options"/>
                           </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="scroll_on_output_checkbutton">
                             <property name="label" translatable="yes">Scroll on _output</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_scroll_on_output_checkbutton_toggled" swapped="no"/>
                           </object>
@@ -2546,7 +2595,7 @@
                             <property name="right_attach">2</property>
                             <property name="top_attach">3</property>
                             <property name="bottom_attach">4</property>
-                            <property name="y_options"></property>
+                            <property name="y_options"/>
                           </packing>
                         </child>
                         <child>
@@ -2662,10 +2711,11 @@
                         <child>
                           <object class="GtkCheckButton" id="scrollback_infinite">
                             <property name="label" translatable="yes">Infinite Scrollback</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="on_scrollback_infinite_toggled" swapped="no"/>
                           </object>
@@ -2675,11 +2725,8 @@
                             <property name="top_attach">2</property>
                             <property name="bottom_attach">3</property>
                             <property name="x_options">GTK_FILL</property>
-                            <property name="y_options"></property>
+                            <property name="y_options"/>
                           </packing>
-                        </child>
-                        <child>
-                          <placeholder/>
                         </child>
                       </object>
                       <packing>
@@ -2742,7 +2789,7 @@
                                 <property name="top_attach">1</property>
                                 <property name="bottom_attach">2</property>
                                 <property name="x_options">GTK_FILL</property>
-                                <property name="y_options"></property>
+                                <property name="y_options"/>
                               </packing>
                             </child>
                             <child>
@@ -2757,7 +2804,7 @@
                               </object>
                               <packing>
                                 <property name="x_options">GTK_FILL</property>
-                                <property name="y_options"></property>
+                                <property name="y_options"/>
                               </packing>
                             </child>
                             <child>
@@ -2819,10 +2866,10 @@
                             <child>
                               <object class="GtkButton" id="reset_compat_defaults_button">
                                 <property name="label" translatable="yes">_Reset Compatibility Options to Defaults</property>
+                                <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="use_action_appearance">False</property>
                                 <property name="use_underline">True</property>
                                 <signal name="clicked" handler="on_reset_compatibility_clicked" swapped="no"/>
                               </object>
@@ -2882,7 +2929,7 @@
                                       </object>
                                       <packing>
                                         <property name="x_options">GTK_FILL</property>
-                                        <property name="y_options"></property>
+                                        <property name="y_options"/>
                                       </packing>
                                     </child>
                                     <child>
@@ -2977,6 +3024,9 @@
                         <property name="vadjustment">adjustment6</property>
                         <property name="model">LayoutListStore</property>
                         <property name="search_column">0</property>
+                        <child internal-child="selection">
+                          <object class="GtkTreeSelection" id="treeview-selection2"/>
+                        </child>
                         <child>
                           <object class="GtkTreeViewColumn" id="layoutcolumn">
                             <property name="title">Layout</property>
@@ -3009,10 +3059,10 @@
                         <child>
                           <object class="GtkButton" id="layoutaddbutton">
                             <property name="label">gtk-add</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_stock">True</property>
                             <signal name="clicked" handler="on_layoutaddbutton_clicked" swapped="no"/>
                           </object>
@@ -3025,10 +3075,10 @@
                         <child>
                           <object class="GtkButton" id="layoutremovebutton">
                             <property name="label">gtk-remove</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_stock">True</property>
                             <signal name="clicked" handler="on_layoutremovebutton_clicked" swapped="no"/>
                           </object>
@@ -3072,6 +3122,9 @@
                             <property name="model">LayoutTreeStore</property>
                             <property name="headers_clickable">False</property>
                             <property name="search_column">0</property>
+                            <child internal-child="selection">
+                              <object class="GtkTreeSelection" id="treeview-selection3"/>
+                            </child>
                             <child>
                               <object class="GtkTreeViewColumn" id="LayoutTreeViewColumnName">
                                 <property name="title">Type</property>
@@ -3109,6 +3162,11 @@
                   <object class="GtkVBox" id="vbox6">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="valign">start</property>
+                    <property name="margin_left">10</property>
+                    <property name="margin_right">10</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">10</property>
                     <child>
                       <object class="GtkAlignment" id="alignment3">
                         <property name="visible">True</property>
@@ -3129,8 +3187,8 @@
                                 <property name="label" translatable="yes">Profile</property>
                               </object>
                               <packing>
-                                <property name="x_options"></property>
-                                <property name="y_options"></property>
+                                <property name="x_options"/>
+                                <property name="y_options"/>
                               </packing>
                             </child>
                             <child>
@@ -3142,8 +3200,8 @@
                               <packing>
                                 <property name="top_attach">1</property>
                                 <property name="bottom_attach">2</property>
-                                <property name="x_options"></property>
-                                <property name="y_options"></property>
+                                <property name="x_options"/>
+                                <property name="y_options"/>
                               </packing>
                             </child>
                             <child>
@@ -3158,8 +3216,8 @@
                                 <property name="right_attach">2</property>
                                 <property name="top_attach">1</property>
                                 <property name="bottom_attach">2</property>
-                                <property name="x_options"></property>
-                                <property name="y_options"></property>
+                                <property name="x_options"/>
+                                <property name="y_options"/>
                               </packing>
                             </child>
                             <child>
@@ -3180,7 +3238,7 @@
                                 <property name="left_attach">1</property>
                                 <property name="right_attach">2</property>
                                 <property name="x_options">GTK_FILL</property>
-                                <property name="y_options"></property>
+                                <property name="y_options"/>
                               </packing>
                             </child>
                             <child>
@@ -3256,6 +3314,9 @@
                     <property name="model">KeybindingsListStore</property>
                     <property name="headers_clickable">False</property>
                     <property name="search_column">0</property>
+                    <child internal-child="selection">
+                      <object class="GtkTreeSelection" id="treeview-selection4"/>
+                    </child>
                     <child>
                       <object class="GtkTreeViewColumn" id="treeviewcolumn1">
                         <property name="title">Name</property>
