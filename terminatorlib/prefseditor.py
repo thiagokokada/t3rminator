@@ -479,17 +479,6 @@ class PrefsEditor:
         widget = guiget('custom_url_handler_entry')
         widget.set_text(self.config['custom_url_handler'])
 
-        ## Background tab
-        # Radio values
-        if self.config['background_type'] == 'solid':
-            guiget('solid_radiobutton').set_active(True)
-        elif self.config['background_type'] == 'transparent':
-            guiget('transparent_radiobutton').set_active(True)
-        self.update_background_tab()
-        # Background shading
-        widget = guiget('background_darkness_scale')
-        widget.set_value(float(self.config['background_darkness']))
-
         ## Scrolling tab
         # Scrollbar position
         widget = guiget('scrollbar_position_combobox')
@@ -1072,30 +1061,6 @@ class PrefsEditor:
         widget.set_active(2)
         widget = guiget('delete_binding_combobox')
         widget.set_active(3)
-
-    def on_background_type_toggled(self, _widget):
-        """The background type was toggled"""
-        self.update_background_tab()
-
-    def update_background_tab(self):
-        """Update the background tab"""
-        guiget = self.builder.get_object
-
-        # Background type
-        backtype = None
-        imagewidget = guiget('image_radiobutton')
-        transwidget = guiget('transparent_radiobutton')
-        if transwidget.get_active() == True:
-            backtype = 'transparent'
-        else:
-            backtype = 'solid'
-        self.config['background_type'] = backtype
-        self.config.save()
-
-        if backtype in ('transparent', 'image'):
-            guiget('darken_background_scale').set_sensitive(True)
-        else:
-            guiget('darken_background_scale').set_sensitive(False)
 
     def on_profile_selection_changed(self, selection):
         """A different profile was selected"""

@@ -613,11 +613,6 @@ class Terminal(Gtk.VBox):
             self.bgcolor = Gdk.RGBA()
             self.bgcolor.parse(self.config['background_color'])
 
-        if self.config['background_type'] == 'transparent':
-            self.bgcolor.alpha = self.config['background_darkness']
-        else:
-            self.bgcolor.alpha = 1
-
         factor = self.config['inactive_color_offset']
         if factor > 1.0:
           factor = 1.0
