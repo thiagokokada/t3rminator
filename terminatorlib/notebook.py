@@ -6,13 +6,13 @@
 from gi.repository import GObject
 from gi.repository import Gtk
 
-from terminator import Terminator
-from config import Config
-from factory import Factory
-from container import Container
-from editablelabel import EditableLabel
-from translation import _
-from util import err, dbg, enumerate_descendants, make_uuid
+from .terminator import Terminator
+from .config import Config
+from .factory import Factory
+from .container import Container
+from .editablelabel import EditableLabel
+from .translation import _
+from .util import err, dbg, enumerate_descendants, make_uuid
 
 class Notebook(Container, Gtk.Notebook):
     """Class implementing a Gtk.Notebook container"""
@@ -61,7 +61,7 @@ class Notebook(Container, Gtk.Notebook):
             pos = getattr(Gtk.PositionType, self.config['tab_position'].upper())
             self.set_tab_pos(pos)
 
-        for tab in xrange(0, self.get_n_pages()):
+        for tab in range(0, self.get_n_pages()):
             label = self.get_tab_label(self.get_nth_page(tab))
             label.update_angle()
 
@@ -84,7 +84,7 @@ class Notebook(Container, Gtk.Notebook):
             if (order_a > order_b):
                 return 1
 
-        if not layout.has_key('children'):
+        if 'children' not in layout:
             err('layout specifies no children: %s' % layout)
             return
 
@@ -95,7 +95,7 @@ class Notebook(Container, Gtk.Notebook):
             return
 
         num = 0
-        keys = children.keys()
+        keys = list(children.keys())
         keys.sort(child_compare)
 
         for child_key in keys:
@@ -118,7 +118,7 @@ class Notebook(Container, Gtk.Notebook):
                 # This page does not yet exist, so make it
                 self.newtab(children[child_key])
                 page = self.get_nth_page(num)
-            if layout.has_key('labels'):
+            if 'labels' in layout:
                 labeltext = layout['labels'][num]
                 if labeltext and labeltext != "None":
                     label = self.get_tab_label(page)
@@ -129,7 +129,7 @@ class Notebook(Container, Gtk.Notebook):
                 self.last_active_term[page] = make_uuid(layout['last_active_term'][num])
             num = num + 1
 
-        if layout.has_key('active_page'):
+        if 'active_page' in layout:
             # Need to do it later, or layout changes result
             GObject.idle_add(self.set_current_page, int(layout['active_page']))
         else:
@@ -225,7 +225,7 @@ class Notebook(Container, Gtk.Notebook):
     def get_children(self):
         """Return an ordered list of our children"""
         children = []
-        for page in xrange(0,self.get_n_pages()):
+        for page in range(0,self.get_n_pages()):
             children.append(self.get_nth_page(page))
         return(children)
 
@@ -268,13 +268,13 @@ class Notebook(Container, Gtk.Notebook):
                     handler = handler[0]
                 self.connect_child(widget, signal, handler, *args)
 
-        if metadata and metadata.has_key('tabnum'):
+        if metadata and 'tabnum' in metadata:
             tabpos = metadata['tabnum']
         else:
             tabpos = -1
 
         label = TabLabel(self.window.get_title(), self)
-        if metadata and metadata.has_key('label'):
+        if metadata and 'label' in metadata:
             dbg('creating TabLabel with text: %s' % metadata['label'])
             label.set_custom_label(metadata['label'])
         label.connect('close-clicked', self.closetab)
@@ -322,7 +322,7 @@ class Notebook(Container, Gtk.Notebook):
             err('TabLabel::closetab: called on non-Notebook: %s' % widget)
             return
 
-        for i in xrange(0, nb.get_n_pages() + 1):
+        for i in range(0, nb.get_n_pages() + 1):
             if label == nb.get_tab_label(nb.get_nth_page(i)):
                 tabnum = i
                 break
@@ -422,7 +422,7 @@ class Notebook(Container, Gtk.Notebook):
             del(self)
             # Find the last terminal in the new parent and give it focus
             terms = parent.get_visible_terminals()
-            terms.keys()[-1].grab_focus()
+            list(terms.keys())[-1].grab_focus()
 
     def page_num_descendant(self, widget):
         """Find the tabnum of the tab containing a widget at any level"""
@@ -452,7 +452,7 @@ class Notebook(Container, Gtk.Notebook):
         if self.terminator.doing_layout == True:
             return
         last_active_term = {}
-        for tabnum in xrange(0, self.get_n_pages()):
+        for tabnum in range(0, self.get_n_pages()):
             nth_page = self.get_nth_page(tabnum)
             if nth_page in self.last_active_term:
                 last_active_term[nth_page] = self.last_active_term[nth_page]

@@ -64,7 +64,7 @@ if __name__ == '__main__':
         try:
             dbg('Creating a terminal with layout: %s' % OPTIONS.layout)
             TERMINATOR.create_layout(OPTIONS.layout)
-        except (KeyError,ValueError), ex:
+        except (KeyError,ValueError) as ex:
             err('layout creation failed, creating a window ("%s")' % ex)
             TERMINATOR.new_window()
         TERMINATOR.layout_done()

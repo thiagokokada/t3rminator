@@ -7,12 +7,12 @@ import copy
 import os
 from gi.repository import Gtk, Gdk
 
-from borg import Borg
-from config import Config
-from keybindings import Keybindings
-from util import dbg, err, enumerate_descendants
-from factory import Factory
-from version import APP_NAME, APP_VERSION
+from .borg import Borg
+from .config import Config
+from .keybindings import Keybindings
+from .util import dbg, err, enumerate_descendants
+from .factory import Factory
+from .version import APP_NAME, APP_VERSION
 
 def eventkey2gdkevent(eventkey):  # FIXME FOR GTK3: is there a simpler way of casting from specific EventKey to generic (union) GdkEvent?
     gdkevent = Gdk.Event(eventkey.type)
@@ -222,34 +222,34 @@ class Terminator(Borg):
             count = count + 1
             if count == 1000:
                 err('hit maximum loop boundary. THIS IS VERY LIKELY A BUG')
-            for obj in layout.keys():
+            for obj in list(layout.keys()):
                 if layout[obj]['type'].lower() == 'window':
                     hierarchy[obj] = {}
                     hierarchy[obj]['type'] = 'Window'
                     hierarchy[obj]['children'] = {}
 
                     # Copy any additional keys
-                    for objkey in layout[obj].keys():
-                        if layout[obj][objkey] != '' and not hierarchy[obj].has_key(objkey):
+                    for objkey in list(layout[obj].keys()):
+                        if layout[obj][objkey] != '' and objkey not in hierarchy[obj]:
                             hierarchy[obj][objkey] = layout[obj][objkey]
 
                     objects[obj] = hierarchy[obj]
                     del(layout[obj])
                 else:
                     # Now examine children to see if their parents exist yet
-                    if not layout[obj].has_key('parent'):
+                    if 'parent' not in layout[obj]:
                         err('Invalid object: %s' % obj)
                         del(layout[obj])
                         continue
-                    if objects.has_key(layout[obj]['parent']):
+                    if layout[obj]['parent'] in objects:
                         # Our parent has been created, add ourselves
                         childobj = {}
                         childobj['type'] = layout[obj]['type']
                         childobj['children'] = {}
 
                         # Copy over any additional object keys
-                        for objkey in layout[obj].keys():
-                            if not childobj.has_key(objkey):
+                        for objkey in list(layout[obj].keys()):
+                            if objkey not in childobj:
                                 childobj[objkey] = layout[obj][objkey]
 
                         objects[layout[obj]['parent']]['children'][obj] = childobj
@@ -264,25 +264,25 @@ class Terminator(Borg):
                 raise(ValueError)
             dbg('Creating a window')
             window, terminal = self.new_window()
-            if layout[windef].has_key('position'):
+            if 'position' in layout[windef]:
                 parts = layout[windef]['position'].split(':')
                 if len(parts) == 2:
                     window.move(int(parts[0]), int(parts[1]))
-            if layout[windef].has_key('size'):
+            if 'size' in layout[windef]:
                 parts = layout[windef]['size']
                 winx = int(parts[0])
                 winy = int(parts[1])
                 if winx > 1 and winy > 1:
                     window.resize(winx, winy)
-            if layout[windef].has_key('title'):
+            if 'title' in layout[windef]:
                 window.title.force_title(layout[windef]['title'])
-            if layout[windef].has_key('maximised'):
+            if 'maximised' in layout[windef]:
                 if layout[windef]['maximised'] == 'True':
                     window.ismaximised = True
                 else:
                     window.ismaximised = False
                 window.set_maximised(window.ismaximised)
-            if layout[windef].has_key('fullscreen'):
+            if 'fullscreen' in layout[windef]:
                 if layout[windef]['fullscreen'] == 'True':
                     window.isfullscreen = True
                 else:
@@ -312,7 +312,7 @@ class Terminator(Borg):
                 # For windows with a notebook
                 notebook = window.get_toplevel().get_children()[0]
                 # Cycle through pages by number
-                for page in xrange(0, notebook.get_n_pages()):
+                for page in range(0, notebook.get_n_pages()):
                     # Try and get the entry in the previously saved mapping
                     mapping = window_last_active_term_mapping[window]
                     page_last_active_term = mapping.get(notebook.get_nth_page(page),  None)
@@ -349,7 +349,7 @@ class Terminator(Borg):
     def reconfigure(self):
         """Update configuration for the whole application"""
 
-        if self.config['handle_size'] in xrange(0, 6):
+        if self.config['handle_size'] in range(0, 6):
             Gtk.rc_parse_string("""
                 style "terminator-paned-style" {
                     GtkPaned::handle_size = %s 

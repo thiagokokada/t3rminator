@@ -12,7 +12,7 @@
 import platform
 import os
 import pwd
-from util import dbg, err
+from .util import dbg, err
 
 def get_default_cwd():
     """Determine a reasonable default cwd"""

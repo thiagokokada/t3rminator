@@ -6,13 +6,13 @@ menu"""
 
 from gi.repository import Gtk
 
-from version import APP_NAME
-from translation import _
-from encoding import TerminatorEncoding
-from terminator import Terminator
-from util import err, dbg
-from config import Config
-from prefseditor import PrefsEditor
+from .version import APP_NAME
+from .translation import _
+from .encoding import TerminatorEncoding
+from .terminator import Terminator
+from .util import err, dbg
+from .config import Config
+from .prefseditor import PrefsEditor
 
 class TerminalPopupMenu(object):
     """Class implementing the Terminal context menu"""
@@ -48,7 +48,7 @@ class TerminalPopupMenu(object):
 
         if url and url[0]:
             dbg("URL matches id: %d" % url[1])
-            if not url[1] in terminal.matches.values():
+            if not url[1] in list(terminal.matches.values()):
                 err("Unknown URL match id: %d" % url[1])
                 dbg("Available matches: %s" % terminal.matches)
 
@@ -202,7 +202,8 @@ class TerminalPopupMenu(object):
         submenu = Gtk.Menu ()
         item.set_submenu (submenu)
         encodings = TerminatorEncoding ().get_list ()
-        encodings.sort (lambda x, y: cmp (x[2].lower (), y[2].lower ()))
+        #encodings.sort (lambda x, y: cmp (x[2].lower (), y[2].lower ()))
+        encodings.sort()
 
         current_encoding = terminal.vte.get_encoding ()
         group = None

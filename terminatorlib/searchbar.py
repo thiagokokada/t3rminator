@@ -7,8 +7,8 @@ from gi.repository import Gtk
 from gi.repository import GObject
 import re
 
-from translation import _
-from config import Config
+from .translation import _
+from .config import Config
 
 # pylint: disable-msg=R0904
 class Searchbar(Gtk.HBox):
@@ -82,6 +82,7 @@ class Searchbar(Gtk.HBox):
         self.pack_start(self.entry, True, True, 0)
         self.pack_start(self.reslabel, False, True, 0)
         self.pack_start(self.prev, False, False, 0)
+        #self.pack_start(self.__next__, False, False, 0)
         self.pack_start(self.next, False, False, 0)
         self.pack_end(close, False, False, 0)
 

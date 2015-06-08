@@ -20,11 +20,11 @@ import sys
 import os
 
 from optparse import OptionParser, SUPPRESS_HELP
-from util import dbg, err
-import util
-import config
-import version
-from translation import _
+from .util import dbg, err
+from . import util
+from . import config
+from . import version
+from .translation import _
 
 options = None
 
@@ -91,7 +91,7 @@ icon for the window (by file or name)'))
             dest='select', help=_('Select a layout from a list'))
     parser.add_option('-p', '--profile', dest='profile', 
             help=_('Use a different profile as the default'))
-    parser.add_option('-d', '--debug', action='count', dest='debug',
+    parser.add_option('-d', '--debug', action='count', dest='debug', default=0,
             help=_('Enable debugging information (twice for debug server)'))
     parser.add_option('--debug-classes', action='store', dest='debug_classes', 
             help=_('Comma separated list of classes to limit debugging to'))
@@ -110,7 +110,7 @@ icon for the window (by file or name)'))
         parser.error('Additional unexpected arguments found: %s' % args)
 
     if options.version:
-        print '%s %s' % (version.APP_NAME, version.APP_VERSION)
+        print('%s %s' % (version.APP_NAME, version.APP_VERSION))
         sys.exit(0)
 
     if options.debug_classes or options.debug_methods:

@@ -7,10 +7,10 @@ import os
 from gi.repository import Gtk
 from gi.repository import GObject
 
-from util import dbg, err, spawn_new_terminator
-import config
-from translation import _
-from terminator import Terminator
+from .util import dbg, err, spawn_new_terminator
+from . import config
+from .translation import _
+from .terminator import Terminator
 
 class LayoutLauncher:
     """Class implementing the various parts of the preferences editor"""
@@ -36,9 +36,9 @@ class LayoutLauncher:
             librarypath = os.path.join(head, 'layoutlauncher.glade')
             gladefile = open(librarypath, 'r')
             gladedata = gladefile.read()
-        except Exception, ex:
-            print "Failed to find layoutlauncher.glade"
-            print ex
+        except Exception as ex:
+            print("Failed to find layoutlauncher.glade")
+            print(ex)
             return
 
         self.builder.add_from_string(gladedata)
@@ -98,9 +98,9 @@ class LayoutLauncher:
         spawn_new_terminator(self.terminator.origcwd, ['-u', '-l', layout])
 
 if __name__ == '__main__':
-    import util
+    from . import util
     util.DEBUG = True
-    import terminal
+    from . import terminal
     LAYOUTLAUNCHER = LayoutLauncher()
 
     Gtk.main()

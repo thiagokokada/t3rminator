@@ -3,7 +3,7 @@
 # GPL v2 only
 """terminal.py - classes necessary to provide Terminal widgets"""
 
-from __future__ import division
+
 import sys
 import os
 import signal
@@ -12,19 +12,19 @@ from gi.repository import GLib, GObject, Pango, Gtk, Gdk
 gi.require_version('Vte', '2.91')  # vte-0.38 (gnome-3.14)
 from gi.repository import Vte
 import subprocess
-import urllib
+import urllib.request, urllib.parse, urllib.error
 
-from util import dbg, err, gerr, spawn_new_terminator, make_uuid
-import util
-from config import Config
-from cwd import get_default_cwd
-from factory import Factory
-from terminator import Terminator
-from titlebar import Titlebar
-from terminal_popup_menu import TerminalPopupMenu
-from searchbar import Searchbar
-from translation import _
-from signalman import Signalman
+from .util import dbg, err, gerr, spawn_new_terminator, make_uuid
+from . import util
+from .config import Config
+from .cwd import get_default_cwd
+from .factory import Factory
+from .terminator import Terminator
+from .titlebar import Titlebar
+from .terminal_popup_menu import TerminalPopupMenu
+from .searchbar import Searchbar
+from .translation import _
+from .signalman import Signalman
 from terminatorlib.layoutlauncher import LayoutLauncher
 
 # pylint: disable-msg=R0904
@@ -189,7 +189,8 @@ class Terminal(Gtk.VBox):
 
     def get_cwd(self):
         """Return our cwd"""
-        return(GLib.filename_from_uri(self.vte.get_current_directory_uri())[0])
+        #return(GLib.filename_from_uri(self.vte.get_current_directory_uri())[0])
+        return(GLib.filename_from_uri("file://" + os.getcwd()))
 
     def close(self):
         """Close ourselves"""
@@ -199,7 +200,7 @@ class Terminal(Gtk.VBox):
         try:
             dbg('close: killing %d' % self.pid)
             os.kill(self.pid, signal.SIGHUP)
-        except Exception, ex:
+        except Exception as ex:
             # We really don't want to care if this failed. Deep OS voodoo is
             # not what we should be doing.
             dbg('os.kill failed: %s' % ex)
@@ -432,9 +433,9 @@ class Terminal(Gtk.VBox):
 
         groupitem = None
 
-        for key, value in {_('Broadcast all'):'all', 
+        for key, value in list({_('Broadcast all'):'all', 
                           _('Broadcast group'):'group',
-                          _('Broadcast off'):'off'}.items():
+                          _('Broadcast off'):'off'}.items()):
             groupitem = Gtk.RadioMenuItem(key, groupitem)
             dbg('Terminal::populate_group_menu: %s active: %s' %
                     (key, self.terminator.groupsend ==
@@ -520,7 +521,7 @@ class Terminal(Gtk.VBox):
     def set_groupsend(self, _widget, value):
         """Set the groupsend mode"""
         # FIXME: Can we think of a smarter way of doing this than poking?
-        if value in self.terminator.groupsend_type.values():
+        if value in list(self.terminator.groupsend_type.values()):
             dbg('Terminal::set_groupsend: setting groupsend to %s' % value)
             self.terminator.groupsend = value
 
@@ -919,7 +920,7 @@ class Terminal(Gtk.VBox):
             # copy text to destination
             txt = selection_data.data.strip(' ')
             if txt[0:7] == 'file://':
-                txt = "'%s'" % urllib.unquote(txt[7:])
+                txt = "'%s'" % urllib.parse.unquote(txt[7:])
             else:
                 txt = txt.split('\n')[0]
             for term in self.terminator.get_target_terms(self):
@@ -1090,7 +1091,7 @@ class Terminal(Gtk.VBox):
         data['old_char_height'] = self.vte.get_char_height()
         data['old_char_width'] = self.vte.get_char_width()
         data['old_allocation'] = self.vte.get_allocation()
-        data['old_padding'] = self.vte.get_padding()
+        #data['old_padding'] = self.vte.get_padding()
         data['old_columns'] = self.vte.get_column_count()
         data['old_rows'] = self.vte.get_row_count()
         data['old_parent'] = self.get_parent()
@@ -1108,10 +1109,13 @@ class Terminal(Gtk.VBox):
         new_font = self.vte.get_font()
         new_allocation = self.vte.get_allocation()
 
-        old_alloc = {'x': old_data['old_allocation'].width - \
-                          old_data['old_padding'][0],
-                     'y': old_data['old_allocation'].height - \
-                          old_data['old_padding'][1]
+        #old_alloc = {'x': old_data['old_allocation'].width - \
+                          #old_data['old_padding'][0],
+                     #'y': old_data['old_allocation'].height - \
+                          #old_data['old_padding'][1]
+                    #}
+        old_alloc = {'x': old_data['old_allocation'].width,
+                     'y': old_data['old_allocation'].height
                     }
 
         dbg('Terminal::zoom_scale: Resized from %dx%d to %dx%d' % (
@@ -1237,7 +1241,7 @@ class Terminal(Gtk.VBox):
 
         dbg('Forking shell: "%s" with args: %s' % (shell, args))
         self.pid = self.vte.spawn_sync(Vte.PtyFlags.DEFAULT,
-                                       self.cwd,
+                                       get_default_cwd(),
                                        args,
                                        envv,
                                        GLib.SpawnFlags.DO_NOT_REAP_CHILD,
@@ -1393,20 +1397,20 @@ class Terminal(Gtk.VBox):
     def create_layout(self, layout):
         """Apply our layout"""
         dbg('Setting layout')
-        if layout.has_key('command') and layout['command'] != '':
+        if 'command' in layout and layout['command'] != '':
             self.layout_command = layout['command']
-        if layout.has_key('profile') and layout['profile'] != '':
+        if 'profile' in layout and layout['profile'] != '':
             if layout['profile'] in self.config.list_profiles():
                 self.set_profile(self, layout['profile'])
-        if layout.has_key('group') and layout['group'] != '':
+        if 'group' in layout and layout['group'] != '':
             # This doesn't need/use self.titlebar, but it's safer than sending
             # None
             self.really_create_group(self.titlebar, layout['group'])
-        if layout.has_key('title') and layout['title'] != '':
+        if 'title' in layout and layout['title'] != '':
             self.titlebar.set_custom_string(layout['title'])
-        if layout.has_key('directory') and layout['directory'] != '':
+        if 'directory' in layout and layout['directory'] != '':
             self.directory = layout['directory']
-        if layout.has_key('uuid') and layout['uuid'] != '':
+        if 'uuid' in layout and layout['uuid'] != '':
             self.uuid = make_uuid(layout['uuid'])
 
     def scroll_by_page(self, pages):
