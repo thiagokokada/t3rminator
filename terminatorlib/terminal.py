@@ -17,7 +17,6 @@ import urllib.request, urllib.parse, urllib.error
 from .util import dbg, err, gerr, spawn_new_terminator, make_uuid
 from . import util
 from .config import Config
-from .cwd import get_default_cwd
 from .factory import Factory
 from .terminator import Terminator
 from .titlebar import Titlebar
@@ -120,7 +119,7 @@ class Terminal(Gtk.VBox):
 
         self.config = Config()
 
-        self.cwd = get_default_cwd()
+        self.cwd = os.getcwd()
         self.origcwd = self.terminator.origcwd
         self.clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
 
@@ -1241,7 +1240,7 @@ class Terminal(Gtk.VBox):
 
         dbg('Forking shell: "%s" with args: %s' % (shell, args))
         self.pid = self.vte.spawn_sync(Vte.PtyFlags.DEFAULT,
-                                       get_default_cwd(),
+                                       self.cwd,
                                        args,
                                        envv,
                                        GLib.SpawnFlags.DO_NOT_REAP_CHILD,
